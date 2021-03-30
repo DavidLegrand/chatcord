@@ -56,7 +56,7 @@ function outputMessage(message) {
   const p = document.createElement('p');
   p.classList.add('meta');
   p.innerText = message.username;
-  p.innerHTML += `<span>${message.time}</span>`;
+  p.innerHTML += ` <span>${message.time}</span>`;
   div.appendChild(p);
   const para = document.createElement('p');
   para.classList.add('text');
@@ -87,4 +87,10 @@ document.getElementById('leave-btn').addEventListener('click', () => {
     window.location = '../index.html';
   } else {
   }
+});
+
+const button = document.querySelector("button");
+button.addEventListener('click', function (e) {
+    socket.emit('chat message', input.value);
+    input.value = '';
 });
